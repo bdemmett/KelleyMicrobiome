@@ -1,0 +1,1805 @@
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_1_4_S-Plate4F9_S133_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_1_4_S-Plate4F9_S133_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_1_4_S-Plate4F9_S133_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_1_4_S-Plate4F9_S133_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_1_4_S-Plate4F9_S133_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_1_4_S-Plate4F9_S133_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_1_4_S-Plate4F9_S133_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_2_1_S-Plate3E5_S37_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_2_1_S-Plate3E5_S37_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_1_S-Plate3E5_S37_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_1_S-Plate3E5_S37_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_2_1_S-Plate3E5_S37_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_2_1_S-Plate3E5_S37_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_1_S-Plate3E5_S37_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_2_2_S-Plate3H4_S32_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_2_2_S-Plate3H4_S32_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_2_S-Plate3H4_S32_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_2_S-Plate3H4_S32_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_2_2_S-Plate3H4_S32_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_2_2_S-Plate3H4_S32_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_2_S-Plate3H4_S32_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_2_4_S-Plate3B2_S10_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_2_4_S-Plate3B2_S10_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_4_S-Plate3B2_S10_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_4_S-Plate3B2_S10_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_2_4_S-Plate3B2_S10_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_2_4_S-Plate3B2_S10_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_2_4_S-Plate3B2_S10_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.1_1_4_S-Plate4A9_S82_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.1_1_4_S-Plate4A9_S82_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/1_1_4_S-Plate4A9_S82_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/1_1_4_S-Plate4A9_S82_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/1_1_4_S-Plate4A9_S82_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/1_1_4_S-Plate4A9_S82_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/1_1_4_S-Plate4A9_S82_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_1_Rh-Plate3C7_S51_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_1_Rh-Plate3C7_S51_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_Rh-Plate3C7_S51_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_Rh-Plate3C7_S51_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_1_Rh-Plate3C7_S51_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_1_Rh-Plate3C7_S51_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_Rh-Plate3C7_S51_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_1_Rh-Plate6F8_S59_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_1_Rh-Plate6F8_S59_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_Rh-Plate6F8_S59_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_Rh-Plate6F8_S59_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_1_Rh-Plate6F8_S59_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_1_Rh-Plate6F8_S59_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_Rh-Plate6F8_S59_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_1_R-Plate4E3_S117_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_1_R-Plate4E3_S117_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_R-Plate4E3_S117_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_R-Plate4E3_S117_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_1_R-Plate4E3_S117_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_1_R-Plate4E3_S117_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_1_R-Plate4E3_S117_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_2_R-Plate4F3_S127_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_2_R-Plate4F3_S127_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_2_R-Plate4F3_S127_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_2_R-Plate4F3_S127_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_2_R-Plate4F3_S127_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_2_R-Plate4F3_S127_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_2_R-Plate4F3_S127_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_3_Rh-Plate6F9_S67_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_3_Rh-Plate6F9_S67_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_3_Rh-Plate6F9_S67_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_3_Rh-Plate6F9_S67_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_3_Rh-Plate6F9_S67_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_3_Rh-Plate6F9_S67_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_3_Rh-Plate6F9_S67_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_3_R-Plate4G3_S137_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_3_R-Plate4G3_S137_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_3_R-Plate4G3_S137_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_3_R-Plate4G3_S137_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_3_R-Plate4G3_S137_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_3_R-Plate4G3_S137_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_3_R-Plate4G3_S137_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_4_R-Plate4H3_S147_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.11_x_4_R-Plate4H3_S147_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_4_R-Plate4H3_S147_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_4_R-Plate4H3_S147_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_4_R-Plate4H3_S147_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/11_x_4_R-Plate4H3_S147_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/11_x_4_R-Plate4H3_S147_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.1_2_4_S-Plate3E1_S5_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.1_2_4_S-Plate3E1_S5_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/1_2_4_S-Plate3E1_S5_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/1_2_4_S-Plate3E1_S5_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/1_2_4_S-Plate3E1_S5_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/1_2_4_S-Plate3E1_S5_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/1_2_4_S-Plate3E1_S5_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_1_4_S-Plate4G9_S143_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_1_4_S-Plate4G9_S143_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_1_4_S-Plate4G9_S143_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_1_4_S-Plate4G9_S143_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_1_4_S-Plate4G9_S143_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_1_4_S-Plate4G9_S143_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_1_4_S-Plate4G9_S143_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_2_1_S-Plate3D1_S4_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_2_1_S-Plate3D1_S4_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_2_1_S-Plate3D1_S4_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_2_1_S-Plate3D1_S4_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_2_1_S-Plate3D1_S4_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_2_1_S-Plate3D1_S4_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_2_1_S-Plate3D1_S4_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_2_4_S-Plate3E2_S13_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_2_4_S-Plate3E2_S13_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_2_4_S-Plate3E2_S13_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_2_4_S-Plate3E2_S13_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_2_4_S-Plate3E2_S13_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_2_4_S-Plate3E2_S13_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_2_4_S-Plate3E2_S13_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_x_1_R-Plate4A4_S77_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_x_1_R-Plate4A4_S77_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_1_R-Plate4A4_S77_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_1_R-Plate4A4_S77_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_x_1_R-Plate4A4_S77_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_x_1_R-Plate4A4_S77_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_1_R-Plate4A4_S77_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_x_2_R-Plate4B4_S88_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_x_2_R-Plate4B4_S88_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_2_R-Plate4B4_S88_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_2_R-Plate4B4_S88_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_x_2_R-Plate4B4_S88_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_x_2_R-Plate4B4_S88_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_2_R-Plate4B4_S88_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_x_3_R-Plate4C4_S98_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_x_3_R-Plate4C4_S98_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_3_R-Plate4C4_S98_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_3_R-Plate4C4_S98_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_x_3_R-Plate4C4_S98_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_x_3_R-Plate4C4_S98_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_3_R-Plate4C4_S98_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_x_4_R-Plate4D4_S108_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.13_x_4_R-Plate4D4_S108_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_4_R-Plate4D4_S108_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_4_R-Plate4D4_S108_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_x_4_R-Plate4D4_S108_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/13_x_4_R-Plate4D4_S108_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/13_x_4_R-Plate4D4_S108_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_1_4_S-Plate4H9_S153_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_1_4_S-Plate4H9_S153_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_1_4_S-Plate4H9_S153_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_1_4_S-Plate4H9_S153_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_1_4_S-Plate4H9_S153_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_1_4_S-Plate4H9_S153_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_1_4_S-Plate4H9_S153_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_2_4_S-Plate3C2_S11_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_2_4_S-Plate3C2_S11_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_2_4_S-Plate3C2_S11_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_2_4_S-Plate3C2_S11_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_2_4_S-Plate3C2_S11_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_2_4_S-Plate3C2_S11_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_2_4_S-Plate3C2_S11_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_2_5_S-Plate3C6_S43_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_2_5_S-Plate3C6_S43_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_2_5_S-Plate3C6_S43_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_2_5_S-Plate3C6_S43_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_2_5_S-Plate3C6_S43_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_2_5_S-Plate3C6_S43_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_2_5_S-Plate3C6_S43_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_1_Rh-Plate3A4_S25_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_1_Rh-Plate3A4_S25_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_1_Rh-Plate3A4_S25_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_1_Rh-Plate3A4_S25_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_1_Rh-Plate3A4_S25_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_1_Rh-Plate3A4_S25_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_1_Rh-Plate3A4_S25_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_1_R-Plate4E4_S118_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_1_R-Plate4E4_S118_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_1_R-Plate4E4_S118_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_1_R-Plate4E4_S118_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_1_R-Plate4E4_S118_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_1_R-Plate4E4_S118_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_1_R-Plate4E4_S118_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_2_R-Plate4F4_S128_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_2_R-Plate4F4_S128_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_2_R-Plate4F4_S128_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_2_R-Plate4F4_S128_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_2_R-Plate4F4_S128_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_2_R-Plate4F4_S128_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_2_R-Plate4F4_S128_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_3_R-Plate4G4_S138_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_3_R-Plate4G4_S138_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_3_R-Plate4G4_S138_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_3_R-Plate4G4_S138_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_3_R-Plate4G4_S138_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_3_R-Plate4G4_S138_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_3_R-Plate4G4_S138_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_4_R-Plate4H4_S148_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.14_x_4_R-Plate4H4_S148_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_4_R-Plate4H4_S148_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_4_R-Plate4H4_S148_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_4_R-Plate4H4_S148_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/14_x_4_R-Plate4H4_S148_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/14_x_4_R-Plate4H4_S148_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_1_3_S-Plate3D5_S36_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_1_3_S-Plate3D5_S36_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_1_3_S-Plate3D5_S36_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_1_3_S-Plate3D5_S36_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_1_3_S-Plate3D5_S36_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_1_3_S-Plate3D5_S36_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_1_3_S-Plate3D5_S36_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_1_4_S-Plate4A10_S83_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_1_4_S-Plate4A10_S83_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_1_4_S-Plate4A10_S83_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_1_4_S-Plate4A10_S83_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_1_4_S-Plate4A10_S83_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_1_4_S-Plate4A10_S83_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_1_4_S-Plate4A10_S83_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_2_3_S-Plate3E4_S29_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_2_3_S-Plate3E4_S29_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_2_3_S-Plate3E4_S29_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_2_3_S-Plate3E4_S29_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_2_3_S-Plate3E4_S29_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_2_3_S-Plate3E4_S29_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_2_3_S-Plate3E4_S29_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_2_4_S-Plate3G1_S7_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_2_4_S-Plate3G1_S7_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_2_4_S-Plate3G1_S7_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_2_4_S-Plate3G1_S7_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_2_4_S-Plate3G1_S7_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_2_4_S-Plate3G1_S7_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_2_4_S-Plate3G1_S7_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_x_1_R-Plate4A5_S78_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_x_1_R-Plate4A5_S78_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_1_R-Plate4A5_S78_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_1_R-Plate4A5_S78_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_x_1_R-Plate4A5_S78_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_x_1_R-Plate4A5_S78_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_1_R-Plate4A5_S78_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_x_2_R-Plate4B5_S89_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_x_2_R-Plate4B5_S89_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_2_R-Plate4B5_S89_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_2_R-Plate4B5_S89_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_x_2_R-Plate4B5_S89_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_x_2_R-Plate4B5_S89_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_2_R-Plate4B5_S89_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_x_3_R-Plate4C5_S99_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_x_3_R-Plate4C5_S99_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_3_R-Plate4C5_S99_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_3_R-Plate4C5_S99_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_x_3_R-Plate4C5_S99_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_x_3_R-Plate4C5_S99_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_3_R-Plate4C5_S99_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_x_4_R-Plate4D5_S109_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.15_x_4_R-Plate4D5_S109_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_4_R-Plate4D5_S109_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_4_R-Plate4D5_S109_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_x_4_R-Plate4D5_S109_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/15_x_4_R-Plate4D5_S109_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/15_x_4_R-Plate4D5_S109_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_1_4_S-Plate4B10_S94_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_1_4_S-Plate4B10_S94_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_1_4_S-Plate4B10_S94_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_1_4_S-Plate4B10_S94_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_1_4_S-Plate4B10_S94_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_1_4_S-Plate4B10_S94_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_1_4_S-Plate4B10_S94_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_1_5_S-Plate3G4_S31_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_1_5_S-Plate3G4_S31_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_1_5_S-Plate3G4_S31_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_1_5_S-Plate3G4_S31_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_1_5_S-Plate3G4_S31_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_1_5_S-Plate3G4_S31_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_1_5_S-Plate3G4_S31_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_2_4_S-Plate3A2_S9_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_2_4_S-Plate3A2_S9_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_2_4_S-Plate3A2_S9_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_2_4_S-Plate3A2_S9_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_2_4_S-Plate3A2_S9_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_2_4_S-Plate3A2_S9_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_2_4_S-Plate3A2_S9_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_2_5_S-Plate3F5_S38_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_2_5_S-Plate3F5_S38_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_2_5_S-Plate3F5_S38_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_2_5_S-Plate3F5_S38_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_2_5_S-Plate3F5_S38_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_2_5_S-Plate3F5_S38_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_2_5_S-Plate3F5_S38_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_1_Rh-Plate3B7_S50_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_1_Rh-Plate3B7_S50_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_Rh-Plate3B7_S50_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_Rh-Plate3B7_S50_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_1_Rh-Plate3B7_S50_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_1_Rh-Plate3B7_S50_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_Rh-Plate3B7_S50_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_1_Rh-Plate6C8_S56_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_1_Rh-Plate6C8_S56_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_Rh-Plate6C8_S56_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_Rh-Plate6C8_S56_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_1_Rh-Plate6C8_S56_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_1_Rh-Plate6C8_S56_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_Rh-Plate6C8_S56_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_1_R-Plate4E5_S119_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_1_R-Plate4E5_S119_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_R-Plate4E5_S119_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_R-Plate4E5_S119_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_1_R-Plate4E5_S119_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_1_R-Plate4E5_S119_L001_R2_001.fastq.gz
+Traceback (most recent call last):
+  File "/software/el9/apps/cutadapt/4.0/bin/cutadapt", line 10, in <module>
+    sys.exit(main_cli())
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 829, in main_cli
+    main(sys.argv[1:])
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 883, in main
+    outfiles = open_output_files(args, default_outfile, file_opener, adapter_names, adapter_names2)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/__main__.py", line 447, in open_output_files
+    out, out2 = file_opener.xopen_pair(args.output, args.paired_output, "wb")
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 179, in xopen_pair
+    file1 = self.xopen_or_none(path1, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 173, in xopen_or_none
+    return self.xopen(path, mode)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/cutadapt/utils.py", line 167, in xopen
+    return xopen(path, mode, compresslevel=self.compression_level, threads=self.threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 587, in xopen
+    return _open_gz(filename, mode, compresslevel, threads)
+  File "/home/bryan.emmett/.local/lib/python3.9/site-packages/xopen/__init__.py", line 496, in _open_gz
+    return gzip.open(filename, mode,
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/software/el9/apps/cutadapt/4.0/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_1_R-Plate4E5_S119_L001_R1_001.fastq.gz'
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_2_R-Plate4F5_S129_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_2_R-Plate4F5_S129_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_2_R-Plate4F5_S129_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_2_R-Plate4F5_S129_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_2_R-Plate4F5_S129_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_2_R-Plate4F5_S129_L001_R2_001.fastq.gz
+Processing reads on 1 core in paired-end mode ...
+Finished in 7.48 s (121 µs/read; 0.50 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             61,954
+  Read 1 with adapter:                  61,873 (99.9%)
+  Read 2 with adapter:                  61,661 (99.5%)
+Pairs written (passing filters):        61,954 (100.0%)
+
+Total basepairs processed:    37,118,030 bp
+  Read 1:    18,585,813 bp
+  Read 2:    18,532,217 bp
+Total written (filtered):     33,557,346 bp (90.4%)
+  Read 1:    16,961,397 bp
+  Read 2:    16,595,949 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: AACTTTYRRCAAYGGATCWCT; Type: regular 5'; Length: 21; Trimmed: 61812 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+14	2	0.0	1	0 2
+15	2	0.0	1	2
+17	1	0.0	1	0 1
+19	1	0.0	1	1
+20	1	0.0	2	0 0 1
+21	1	0.0	2	0 0 1
+22	1	0.0	2	1
+23	2	0.0	2	1 0 1
+24	32	0.0	2	12 6 14
+25	295	0.0	2	134 161
+26	61343	0.0	2	56374 4850 119
+27	130	0.0	2	56 66 8
+28	1	0.0	2	0 0 1
+
+
+=== First read: Adapter 2 ===
+
+Sequence: AYTTAAGCATATCAATAAGCGGAGGCT; Type: regular 3'; Length: 27; Trimmed: 319 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Bases preceding removed adapters:
+  A: 70.2%
+  C: 21.9%
+  G: 0.9%
+  T: 6.9%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	53	968.0	0	53
+4	199	242.0	0	199
+5	7	60.5	0	7
+277	58	0.0	2	42 16
+279	2	0.0	2	2
+
+
+=== Second read: Adapter 3 ===
+
+Sequence: AGCCTCCGCTTATTGATATGCTTAART; Type: regular 5'; Length: 27; Trimmed: 61660 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	5	968.0	0	5
+19	1	0.0	1	1
+22	2	0.0	2	2
+28	1	0.0	2	0 1
+29	34	0.0	2	1 1 32
+30	232	0.0	2	29 191 12
+31	36887	0.0	2	35677 981 229
+32	24450	0.0	2	6 23960 484
+33	47	0.0	2	0 11 36
+46	1	0.0	2	1
+
+
+=== Second read: Adapter 4 ===
+
+Sequence: AGWGATCCRTTGYYRAAAGTT; Type: regular 3'; Length: 21; Trimmed: 126 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Bases preceding removed adapters:
+  A: 17.5%
+  C: 25.4%
+  G: 23.0%
+  T: 34.1%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	95	968.0	0	95
+4	15	242.0	0	15
+5	5	60.5	0	5
+6	2	15.1	0	2
+9	3	0.2	0	0 3
+10	4	0.1	1	0 4
+13	1	0.0	1	0 1
+260	1	0.0	2	0 1
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_3_Rh-Plate3G3_S23_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_3_Rh-Plate3G3_S23_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_3_Rh-Plate3G3_S23_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_3_Rh-Plate3G3_S23_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_3_Rh-Plate3G3_S23_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_3_Rh-Plate3G3_S23_L001_R2_001.fastq.gz
+Processing reads on 1 core in paired-end mode ...
+Finished in 12.80 s (129 µs/read; 0.47 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             99,347
+  Read 1 with adapter:                  99,287 (99.9%)
+  Read 2 with adapter:                  97,499 (98.1%)
+Pairs written (passing filters):        99,347 (100.0%)
+
+Total basepairs processed:    59,522,279 bp
+  Read 1:    29,803,975 bp
+  Read 2:    29,718,304 bp
+Total written (filtered):     52,728,492 bp (88.6%)
+  Read 1:    25,938,098 bp
+  Read 2:    26,790,394 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: AACTTTYRRCAAYGGATCWCT; Type: regular 5'; Length: 21; Trimmed: 94698 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	6	1552.3	0	6
+14	1	0.0	1	1
+22	3	0.0	2	1 0 2
+23	7	0.0	2	4 2 1
+24	1	0.0	2	1
+25	57	0.0	2	13 3 41
+26	366	0.0	2	101 245 20
+27	93771	0.0	2	89255 4422 94
+28	471	0.0	2	68 383 20
+29	11	0.0	2	1 1 9
+30	1	0.0	2	1
+34	1	0.0	2	1
+42	1	0.0	2	1
+58	1	0.0	2	1
+
+
+=== First read: Adapter 2 ===
+
+Sequence: AYTTAAGCATATCAATAAGCGGAGGCT; Type: regular 3'; Length: 27; Trimmed: 5685 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Bases preceding removed adapters:
+  A: 5.0%
+  C: 84.7%
+  G: 1.5%
+  T: 8.9%
+  none/other: 0.0%
+WARNING:
+    The adapter is preceded by "C" extremely often.
+    The provided adapter sequence could be incomplete at its 5' end.
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	748	1552.3	0	748
+4	133	388.1	0	133
+5	52	97.0	0	52
+6	4	24.3	0	4
+16	1	0.0	1	1
+23	6	0.0	2	6
+28	1	0.0	2	1
+29	2	0.0	2	2
+63	1	0.0	2	1
+133	2	0.0	2	2
+161	1	0.0	2	1
+255	13	0.0	2	0 4 9
+256	13	0.0	2	1 7 5
+257	3	0.0	2	0 3
+264	2	0.0	2	0 2
+267	3	0.0	2	0 3
+270	67	0.0	2	0 0 67
+271	38	0.0	2	0 36 2
+275	13	0.0	2	5 8
+276	4562	0.0	2	3592 909 61
+277	17	0.0	2	11 6
+278	2	0.0	2	2
+292	1	0.0	2	0 0 1
+
+
+=== Second read: Adapter 3 ===
+
+Sequence: AGCCTCCGCTTATTGATATGCTTAART; Type: regular 5'; Length: 27; Trimmed: 97345 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	7	1552.3	0	7
+5	7	97.0	0	7
+8	1	1.5	0	1
+20	1	0.0	2	0 1
+21	2	0.0	2	2
+22	2	0.0	2	0 1 1
+23	5	0.0	2	1 3 1
+24	1	0.0	2	0 0 1
+25	1	0.0	2	0 1
+26	9	0.0	2	3 2 4
+27	57	0.0	2	1 3 53
+28	580	0.0	2	88 470 22
+29	88855	0.0	2	83773 4069 1013
+30	7797	0.0	2	14 7463 320
+31	16	0.0	2	0 1 15
+33	2	0.0	2	0 0 2
+34	1	0.0	2	0 1
+37	1	0.0	2	1
+
+
+=== Second read: Adapter 4 ===
+
+Sequence: AGWGATCCRTTGYYRAAAGTT; Type: regular 3'; Length: 21; Trimmed: 1584 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Bases preceding removed adapters:
+  A: 33.7%
+  C: 34.9%
+  G: 16.8%
+  T: 14.3%
+  none/other: 0.3%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	955	1552.3	0	955
+4	188	388.1	0	188
+5	31	97.0	0	31
+6	9	24.3	0	9
+7	5	6.1	0	5
+8	2	1.5	0	2
+9	12	0.4	0	0 12
+10	16	0.1	1	2 14
+11	7	0.0	1	0 7
+14	1	0.0	1	0 1
+21	6	0.0	2	2 3 1
+61	1	0.0	2	1
+131	2	0.0	2	2
+178	1	0.0	2	0 0 1
+214	1	0.0	2	0 1
+254	68	0.0	2	1 45 22
+255	3	0.0	2	0 2 1
+256	4	0.0	2	0 0 4
+257	24	0.0	2	0 11 13
+260	19	0.0	2	3 11 5
+262	2	0.0	2	0 2
+264	1	0.0	2	0 0 1
+265	3	0.0	2	0 3
+267	1	0.0	2	0 0 1
+268	80	0.0	2	0 73 7
+269	37	0.0	2	0 37
+270	1	0.0	2	0 0 1
+271	5	0.0	2	0 1 4
+274	14	0.0	2	5 4 5
+277	1	0.0	2	1
+278	1	0.0	2	1
+281	8	0.0	2	1 6 1
+282	1	0.0	2	1
+285	24	0.0	2	0 2 22
+287	50	0.0	2	1 47 2
+
+
+WARNING:
+    One or more of your adapter sequences may be incomplete.
+    Please see the detailed output above.
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_3_R-Plate4G5_S139_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_3_R-Plate4G5_S139_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_3_R-Plate4G5_S139_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_3_R-Plate4G5_S139_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_3_R-Plate4G5_S139_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_3_R-Plate4G5_S139_L001_R2_001.fastq.gz
+Processing reads on 1 core in paired-end mode ...
+Finished in 9.01 s (120 µs/read; 0.50 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             75,225
+  Read 1 with adapter:                  75,180 (99.9%)
+  Read 2 with adapter:                  74,906 (99.6%)
+Pairs written (passing filters):        75,225 (100.0%)
+
+Total basepairs processed:    45,074,181 bp
+  Read 1:    22,567,500 bp
+  Read 2:    22,506,681 bp
+Total written (filtered):     40,629,037 bp (90.1%)
+  Read 1:    20,484,672 bp
+  Read 2:    20,144,365 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: AACTTTYRRCAAYGGATCWCT; Type: regular 5'; Length: 21; Trimmed: 74991 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	19	1175.4	0	19
+12	1	0.0	1	1
+21	1	0.0	2	0 1
+22	2	0.0	2	1 1
+23	3	0.0	2	2 0 1
+24	3	0.0	2	3
+25	38	0.0	2	12 3 23
+26	325	0.0	2	93 218 14
+27	74475	0.0	2	70425 3933 117
+28	116	0.0	2	43 66 7
+29	6	0.0	2	0 0 6
+52	1	0.0	2	1
+58	1	0.0	2	1
+
+
+=== First read: Adapter 2 ===
+
+Sequence: AYTTAAGCATATCAATAAGCGGAGGCT; Type: regular 3'; Length: 27; Trimmed: 512 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Bases preceding removed adapters:
+  A: 51.2%
+  C: 38.5%
+  G: 0.4%
+  T: 10.0%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	221	1175.4	0	221
+4	72	293.8	0	72
+5	6	73.5	0	6
+7	1	4.6	0	1
+22	1	0.0	2	1
+45	1	0.0	2	1
+257	4	0.0	2	0 4
+268	18	0.0	2	0 17 1
+276	187	0.0	2	145 42
+277	1	0.0	2	1
+
+
+=== Second read: Adapter 3 ===
+
+Sequence: AGCCTCCGCTTATTGATATGCTTAART; Type: regular 5'; Length: 27; Trimmed: 74896 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	7	1175.4	0	7
+16	1	0.0	1	1
+17	1	0.0	1	0 1
+20	1	0.0	2	0 1
+22	1	0.0	2	1
+24	1	0.0	2	1
+25	1	0.0	2	0 1
+27	4	0.0	2	1 1 2
+28	4	0.0	2	2 0 2
+29	30	0.0	2	3 3 24
+30	262	0.0	2	51 205 6
+31	41576	0.0	2	40289 1074 213
+32	32940	0.0	2	15 32262 663
+33	63	0.0	2	0 8 55
+34	3	0.0	2	1 2
+35	1	0.0	2	0 1
+
+
+=== Second read: Adapter 4 ===
+
+Sequence: AGWGATCCRTTGYYRAAAGTT; Type: regular 3'; Length: 21; Trimmed: 289 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Bases preceding removed adapters:
+  A: 17.0%
+  C: 28.4%
+  G: 13.8%
+  T: 40.8%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	218	1175.4	0	218
+4	21	293.8	0	21
+5	7	73.5	0	7
+6	4	18.4	0	4
+9	4	0.3	0	1 3
+10	5	0.1	1	0 5
+12	1	0.0	1	0 1
+18	1	0.0	1	0 1
+41	1	0.0	2	1
+219	1	0.0	2	1
+253	4	0.0	2	0 4
+264	17	0.0	2	17
+268	1	0.0	2	0 1
+275	1	0.0	2	1
+283	1	0.0	2	0 0 1
+285	2	0.0	2	0 2
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_4_Rh-Plate3E6_S45_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_4_Rh-Plate3E6_S45_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_4_Rh-Plate3E6_S45_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_4_Rh-Plate3E6_S45_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_4_Rh-Plate3E6_S45_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_4_Rh-Plate3E6_S45_L001_R2_001.fastq.gz
+Processing reads on 1 core in paired-end mode ...
+Finished in 8.77 s (122 µs/read; 0.49 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             72,200
+  Read 1 with adapter:                  72,147 (99.9%)
+  Read 2 with adapter:                  71,952 (99.7%)
+Pairs written (passing filters):        72,200 (100.0%)
+
+Total basepairs processed:    43,261,017 bp
+  Read 1:    21,659,990 bp
+  Read 2:    21,601,027 bp
+Total written (filtered):     39,125,332 bp (90.4%)
+  Read 1:    19,833,842 bp
+  Read 2:    19,291,490 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: AACTTTYRRCAAYGGATCWCT; Type: regular 5'; Length: 21; Trimmed: 72076 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+4	3	282.0	0	3
+17	1	0.0	1	1
+20	1	0.0	2	1
+21	2	0.0	2	1 0 1
+22	10	0.0	2	2 1 7
+23	36	0.0	2	6 6 24
+24	273	0.0	2	82 188 3
+25	71654	0.0	2	70644 941 69
+26	92	0.0	2	31 59 2
+27	2	0.0	2	0 1 1
+39	1	0.0	2	1
+54	1	0.0	2	1
+
+
+=== First read: Adapter 2 ===
+
+Sequence: AYTTAAGCATATCAATAAGCGGAGGCT; Type: regular 3'; Length: 27; Trimmed: 1168 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Bases preceding removed adapters:
+  A: 10.7%
+  C: 46.3%
+  G: 16.2%
+  T: 26.8%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	691	1128.1	0	691
+4	327	282.0	0	327
+5	19	70.5	0	19
+9	50	0.3	0	50
+22	1	0.0	2	1
+23	1	0.0	2	1
+47	5	0.0	2	4 1
+52	1	0.0	2	1
+278	72	0.0	2	67 5
+294	1	0.0	2	0 1
+
+
+=== Second read: Adapter 3 ===
+
+Sequence: AGCCTCCGCTTATTGATATGCTTAART; Type: regular 5'; Length: 27; Trimmed: 71933 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	6	1128.1	0	6
+22	1	0.0	2	0 0 1
+23	1	0.0	2	1
+25	1	0.0	2	0 1
+27	3	0.0	2	1 1 1
+28	4	0.0	2	2 1 1
+29	13	0.0	2	10 0 3
+30	43	0.0	2	7 2 34
+31	391	0.0	2	76 308 7
+32	70193	0.0	2	68573 1462 158
+33	1274	0.0	2	39 1206 29
+34	2	0.0	2	0 1 1
+40	1	0.0	2	1
+
+
+=== Second read: Adapter 4 ===
+
+Sequence: AGWGATCCRTTGYYRAAAGTT; Type: regular 3'; Length: 21; Trimmed: 858 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Bases preceding removed adapters:
+  A: 55.8%
+  C: 18.1%
+  G: 18.3%
+  T: 7.8%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	713	1128.1	0	713
+4	82	282.0	0	82
+5	31	70.5	0	31
+6	3	17.6	0	3
+7	2	4.4	0	2
+9	2	0.3	0	1 1
+11	2	0.0	1	0 2
+16	1	0.0	1	1
+40	5	0.0	2	5
+45	1	0.0	2	1
+257	1	0.0	2	0 1
+262	15	0.0	2	0 15
+This is cutadapt 3.1 with Python 3.9.16
+Command line parameters: -g AACTTTYRRCAAYGGATCWCT -a AYTTAAGCATATCAATAAGCGGAGGCT -G AGCCTCCGCTTATTGATATGCTTAART -A AGWGATCCRTTGYYRAAAGTT -n 2 --untrimmed-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_4_R-Plate4H5_S149_L001_R1_001.fastq.gz --untrimmed-paired-output=/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/untrimmed/untrimmed.16_x_4_R-Plate4H5_S149_L001_R2_001.fastq.gz -o /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_4_R-Plate4H5_S149_L001_R1_001.fastq.gz -p /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/cutadapt/16_x_4_R-Plate4H5_S149_L001_R2_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_4_R-Plate4H5_S149_L001_R1_001.fastq.gz /project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw/filtN/16_x_4_R-Plate4H5_S149_L001_R2_001.fastq.gz
+Processing reads on 1 core in paired-end mode ...
+Finished in 10.42 s (119 µs/read; 0.50 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:             87,597
+  Read 1 with adapter:                  87,520 (99.9%)
+  Read 2 with adapter:                  87,220 (99.6%)
+Pairs written (passing filters):        87,597 (100.0%)
+
+Total basepairs processed:    52,480,464 bp
+  Read 1:    26,278,574 bp
+  Read 2:    26,201,890 bp
+Total written (filtered):     47,170,024 bp (89.9%)
+  Read 1:    23,716,651 bp
+  Read 2:    23,453,373 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: AACTTTYRRCAAYGGATCWCT; Type: regular 5'; Length: 21; Trimmed: 87081 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+16	1	0.0	1	0 1
+21	1	0.0	2	0 0 1
+22	3	0.0	2	1 1 1
+23	1	0.0	2	1
+24	2	0.0	2	2
+25	9	0.0	2	6 1 2
+26	48	0.0	2	24 7 17
+27	454	0.0	2	177 262 15
+28	86400	0.0	2	79296 6987 117
+29	147	0.0	2	36 93 18
+30	9	0.0	2	0 2 7
+32	2	0.0	2	2
+33	1	0.0	2	0 1
+40	1	0.0	2	1
+42	1	0.0	2	1
+63	1	0.0	2	1
+
+
+=== First read: Adapter 2 ===
+
+Sequence: AYTTAAGCATATCAATAAGCGGAGGCT; Type: regular 3'; Length: 27; Trimmed: 529 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Bases preceding removed adapters:
+  A: 9.5%
+  C: 87.1%
+  G: 0.8%
+  T: 2.6%
+  none/other: 0.0%
+WARNING:
+    The adapter is preceded by "C" extremely often.
+    The provided adapter sequence could be incomplete at its 5' end.
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	38	1368.7	0	38
+4	31	342.2	0	31
+5	1	85.5	0	1
+8	1	1.3	0	1
+44	5	0.0	2	5
+45	1	0.0	2	1
+51	1	0.0	2	1
+77	1	0.0	2	1
+87	1	0.0	2	0 0 1
+256	1	0.0	2	0 0 1
+257	7	0.0	2	0 7
+265	2	0.0	2	2
+275	437	0.0	2	264 167 6
+276	2	0.0	2	2
+
+
+=== Second read: Adapter 3 ===
+
+Sequence: AGCCTCCGCTTATTGATATGCTTAART; Type: regular 5'; Length: 27; Trimmed: 87184 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-27 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	6	1368.7	0	6
+13	1	0.0	1	1
+16	2	0.0	1	2
+17	1	0.0	1	0 1
+19	1	0.0	1	0 1
+22	1	0.0	2	0 0 1
+23	1	0.0	2	1
+24	2	0.0	2	1 1
+25	2	0.0	2	0 0 2
+27	2	0.0	2	1 1
+28	4	0.0	2	2 0 2
+29	40	0.0	2	8 4 28
+30	316	0.0	2	58 247 11
+31	53731	0.0	2	51933 1510 288
+32	33025	0.0	2	19 32335 671
+33	47	0.0	2	0 8 39
+34	2	0.0	2	0 1 1
+
+
+=== Second read: Adapter 4 ===
+
+Sequence: AGWGATCCRTTGYYRAAAGTT; Type: regular 3'; Length: 21; Trimmed: 314 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Bases preceding removed adapters:
+  A: 21.7%
+  C: 18.2%
+  G: 20.1%
+  T: 40.1%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	181	1368.7	0	181
+4	43	342.2	0	43
+5	7	85.5	0	7
+6	18	21.4	0	18
+8	1	1.3	0	1
+9	1	0.3	0	0 1
+10	3	0.1	1	1 2
+12	5	0.0	1	0 5
+13	1	0.0	1	0 1
+41	5	0.0	2	3 2
+42	1	0.0	2	1
+48	1	0.0	2	1
+74	1	0.0	2	1
+84	1	0.0	2	1
+254	8	0.0	2	0 7 1
+262	2	0.0	2	0 2
+263	13	0.0	2	0 12 1
+265	8	0.0	2	0 8
+269	4	0.0	2	0 3 1
+276	7	0.0	2	0 7
+285	3	0.0	2	0 3
+
+
+WARNING:
+    One or more of your adapter sequences may be incomplete.
+    Please see the detailed output above.

@@ -1,0 +1,682 @@
+---
+title: "DADA2 - KelleyMicrobiome ITS2 Plate 3 & 4"
+output: html_notebook
+---
+
+```{r}
+# if (!require("BiocManager", quietly = TRUE))
+#     install.packages("BiocManager")
+# 
+#BiocManager::install("phyloseq")
+
+```
+
+
+```{r}
+ncores = 24
+```
+
+```{r}
+library(tidyverse)
+library(dada2)
+library(ShortRead)
+library(Biostrings)
+library(phyloseq)
+
+```
+
+
+```{r}
+seqDIR = '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw'
+path = seqDIR
+list.files(path)
+
+```
+
+# Collect files
+
+```{r}
+#Collect forward and reverse names in order
+fnFs <- sort(list.files(path, pattern = "_R1_001.fastq.gz", full.names = TRUE))
+fnRs <- sort(list.files(path, pattern = "_R2_001.fastq.gz", full.names = TRUE))
+if(length(fnFs) != length(fnRs)) stop("Forward and reverse files do not match.")
+```
+
+# Identify primers
+```{r}
+FWD <- "AACTTTYRRCAAYGGATCWCT"  ## ITS2 5.8S forward primer sequence
+REV <- "AGCCTCCGCTTATTGATATGCTTAART"  ## ITS2 ITS4Fun primer sequence
+FSEQ = "TCTTTCCCTACACGACGCTCTTCCGATCT" # Forward sequencing primer
+RSEQ = "GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT" # Reverse sequencing primer
+```
+
+```{r}
+allOrients <- function(primer) {
+    # Create all orientations of the input sequence
+    require(Biostrings)
+    dna <- DNAString(primer)  # The Biostrings works w/ DNAString objects rather than character vectors
+    orients <- c(Forward = dna, Complement = Biostrings::complement(dna), Reverse = Biostrings::reverse(dna),
+        RevComp = Biostrings::reverseComplement(dna))
+    return(sapply(orients, toString))  # Convert back to character vector
+}
+FWD.orients <- allOrients(FWD)
+REV.orients <- allOrients(REV)
+FSEQ.orients <- allOrients(FSEQ)
+RSEQ.orients <- allOrients(RSEQ)
+FWD.orients
+REV.orients
+FSEQ.orients
+RSEQ.orients
+```
+
+```{r}
+if (file.exists(file.path(path, "filtN"))){
+  print(TRUE)
+} else {
+  #create new subdirectory
+  dir.create(file.path(path,"filtN"))
+}
+```
+
+
+```{r}
+fnFs.filtN <- file.path(path, "filtN", basename(fnFs)) # Put N-filtered files in filtN/ subdirectory
+fnRs.filtN <- file.path(path, "filtN", basename(fnRs))
+filterAndTrim(fnFs, fnFs.filtN, fnRs, fnRs.filtN, maxN = 0, multithread = ncores)
+
+fnFs.filtN[1]
+fnRs.filtN[1]
+```
+
+
+## Check orientation and read through
+```{r}
+primerHits <- function(primer, fn) {
+    # Counts number of reads in which the primer is found
+    nhits <- vcountPattern(primer, sread(readFastq(fn)), fixed = FALSE)
+    return(sum(nhits > 0))
+}
+rbind(
+  FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs.filtN[[7]]), 
+  FWD.ReverseReads = sapply(FWD.orients,
+    primerHits, fn = fnRs.filtN[[7]]), 
+  REV.ForwardReads = sapply(REV.orients, primerHits,
+    fn = fnFs.filtN[[7]]), 
+  REV.ReverseReads = sapply(REV.orients, primerHits, fn = fnRs.filtN[[7]]))
+```
+Some primer read through
+
+Check for the sequencing adapters to see if there are similar counts
+```{r}
+rbind(
+  FSEQ.ForwardReads = sapply(FSEQ.orients, primerHits, fn = fnFs.filtN[[7]]), 
+  FSEQ.ReverseReads = sapply(FSEQ.orients,
+    primerHits, fn = fnRs.filtN[[7]]), 
+  RSEQ.ForwardReads = sapply(RSEQ.orients, primerHits,
+    fn = fnFs.filtN[[7]]), 
+  RSEQ.ReverseReads = sapply(RSEQ.orients, primerHits, fn = fnRs.filtN[[7]]))
+```
+Some sequencing primers present
+
+# Execute cutadapt from bash script through ssh
+The system command was not working properly, so used R to generate adapter and RC sequences and ran bash_cutadapt.sh script.  Note to run using sbatch in order to run job on compute node.  
+
+```{r}
+# cutadapt <- "/home/bryan.emmett/.local/bin/cutadapt"
+# system2(command = cutadapt, args = "--version")
+
+```
+### Create directory for trimmed sequences
+```{r}
+path.cut <- file.path(path, "cutadapt")
+if(!dir.exists(path.cut)) dir.create(path.cut)
+fnFs.cut <- file.path(path.cut, basename(fnFs))
+fnRs.cut <- file.path(path.cut, basename(fnRs))
+```
+
+### Define primers
+```{r}
+FWD.RC <- dada2:::rc(FWD)
+REV.RC <- dada2:::rc(REV)
+FWD
+REV
+FWD.RC
+REV.RC
+
+R1.flags <- paste("-g", FWD, "-a", REV.RC)
+R2.flags <- paste("-G", REV, "-A", FWD.RC) 
+R1.flags
+R2.flags
+```
+
+
+
+
+
+
+
+```{r}
+fnRs.cut[1]
+```
+
+# Resume here when first cutadapt job is finished
+
+
+## Check cut adapt
+```{r}
+rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs.cut[[1]]), FWD.ReverseReads = sapply(FWD.orients,
+    primerHits, fn = fnRs.cut[[1]]), REV.ForwardReads = sapply(REV.orients, primerHits,
+    fn = fnFs.cut[[1]]), REV.ReverseReads = sapply(REV.orients, primerHits, fn = fnRs.cut[[1]]))
+```
+Check for the sequencing adapters to see if there are similar counts
+```{r}
+rbind(
+  FSEQ.ForwardReads = sapply(FSEQ.orients, primerHits, fn = fnFs.cut[[1]]), 
+  FSEQ.ReverseReads = sapply(FSEQ.orients,
+    primerHits, fn = fnRs.cut[[1]]), 
+  RSEQ.ForwardReads = sapply(RSEQ.orients, primerHits,
+    fn = fnFs.cut[[1]]), 
+  RSEQ.ReverseReads = sapply(RSEQ.orients, primerHits, fn = fnRs.cut[[1]]))
+```
+Some sequences remain with sequencing primers.  Need to re-run cut-adapt and include adapter sequences and filter for fragments smaller than a certain size.    
+
+
+
+## Check after second cutadapt round
+
+changing path to cut files to target new cutadapt2 folder
+
+```{r}
+path.cut2 <- file.path(path, "cutadapt2")
+#if(!dir.exists(path.cut)) dir.create(path.cut)
+fnFs.cut <- file.path(path.cut2, basename(fnFs))
+fnRs.cut <- file.path(path.cut2, basename(fnRs))
+```
+
+```{r}
+fnFs.cut[1]
+rbind(
+  FSEQ.ForwardReads = sapply(FSEQ.orients, primerHits, fn = fnFs.cut[[1]]), 
+  FSEQ.ReverseReads = sapply(FSEQ.orients,
+    primerHits, fn = fnRs.cut[[1]]), 
+  RSEQ.ForwardReads = sapply(RSEQ.orients, primerHits,
+    fn = fnFs.cut[[1]]), 
+  RSEQ.ReverseReads = sapply(RSEQ.orients, primerHits, fn = fnRs.cut[[1]]))
+```
+
+
+
+```{r}
+
+# Forward and reverse fastq filenames have the format:
+cutFs <- sort(list.files(path.cut2, pattern = "_R1_001.fastq.gz", full.names = TRUE))
+cutRs <- sort(list.files(path.cut2, pattern = "_R2_001.fastq.gz", full.names = TRUE))
+
+# Extract sample names, assuming filenames have format:
+get.sample.name <- function(fname) strsplit(basename(fname), "_S")[[1]][1]
+sample.names <- unname(sapply(cutFs, get.sample.name))
+
+sample.names = sample.names[-28]
+sample.names
+
+```
+
+
+# Plot quality profiles and forward and reverse reads
+## Forward reads
+
+
+
+```{r}
+plotQualityProfile(fnFs.cut[c(1,22)])
+```
+
+Forward reads are high quality
+
+
+
+## Reverse reads
+```{r}
+plotQualityProfile(fnRs.cut[c(1,22)])
+```
+
+* Reverse reads decrease in quality around 200 bp
+
+## Last check
+
+```{r}
+
+readLines(fnFs.cut[1], n = 4)
+readLines(fnRs.cut[1], n = 4)
+#path
+#fastqFs[1]
+```
+# Filter and trim
+
+```{r}
+filtFs <- file.path(path.cut2, "filtered", basename(cutFs))
+filtRs <- file.path(path.cut2, "filtered", basename(cutRs))
+```
+
+
+```{r}
+out <- filterAndTrim(cutFs, filtFs, cutRs, filtRs, maxN = 0, maxEE = c(2, 2), truncQ = 8,
+    minLen = 50, rm.phix = TRUE, compress = TRUE, multithread = ncores)  # on windows, set multithread = FALSE
+head(out)
+```
+
+```{r}
+head(out)
+OutFolder = "/project/mmicrobe/Kelley/ITS2/KY21-3-4"
+saveRDS(out, file.path(OutFolder,'FilterTrim.rds'))
+```
+
+
+# Learn errors
+
+```{r}
+set.seed(100)
+# Learn forward error rates
+errF <- learnErrors(filtFs, multithread = ncores)
+# Learn reverse error rates
+errR <- learnErrors(filtRs, multithread=ncores)
+```
+
+```{r}
+plotErrors(errF)
+errF_File = file.path(OutFolder,"errF.rds")
+saveRDS(errF, errF_File)
+
+errR_File = file.path(OutFolder,"errR.rds")
+saveRDS(errR, errR_File)
+```
+
+# Sequence Inference
+There is a sample with no sequences, C11 on plate three, which needs to be re-amplified.  Removing file from list to avoid errors
+```{r}
+filtFs = filtFs[-28]
+filtRs = filtRs[-28]
+```
+
+
+```{r}
+dadaFs <- dada(filtFs, err = errF, multithread = TRUE)
+dadaRs <- dada(filtRs, err = errR, multithread = TRUE)
+```
+# Merge paired end reads
+```{r}
+mergers <- mergePairs(dadaFs, filtFs, dadaRs, filtRs, verbose=TRUE)
+
+```
+
+
+## Construct sequence table
+##3 Checkpoint - read mergers file, construct sequence table and remove chimeras
+
+```{r}
+seqtab <- makeSequenceTable(mergers)
+dim(seqtab)
+```
+
+## Remove chimeras
+
+```{r}
+seqtab.nochim <- removeBimeraDenovo(seqtab, method="consensus", multithread=ncores, verbose=TRUE)
+```
+
+
+```{r}
+dim(seqtab.nochim)
+# Inspect distribution of sequence lengths
+table(nchar(getSequences(seqtab.nochim)))
+```
+
+
+```{r}
+outFile = file.path(OutFolder,"seqtab-nochim.rds")
+
+saveRDS(seqtab.nochim, outFile)
+```
+
+
+
+## Checkpoint read seqtab.nochim
+```{r}
+CheckPoint = file.path(OutFolder,"seqtab-nochim.rds")
+
+seqtab.nochim = readRDS(CheckPoint)
+```
+
+```{r}
+paste("Fraction of reads not attributed to chimeras:", sum(seqtab.nochim)/sum(seqtab))
+```
+
+# Track reads through pipeline
+```{r}
+getN <- function(x) sum(getUniques(x))
+track <- cbind(out, sapply(dadaFs, getN), sapply(dadaRs, getN), sapply(mergers, getN),
+    rowSums(seqtab.nochim))
+# If processing a single sample, remove the sapply calls: e.g. replace
+# sapply(dadaFs, getN) with getN(dadaFs)
+colnames(track) <- c("input", "filtered", "denoisedF", "denoisedR", "merged", "nonchim")
+#rownames(track) <- sample.names
+head(track)
+
+```
+Rows in racking file are offset by one after removal of 13.x.3.Rh
+
+```{r}
+# track %>% as.data.frame() %>% mutate(sample = row.names(.)) %>% dplyr::arrange(desc(nonchim))
+```
+
+```{r}
+outFile = file.path(OutFolder,'Tracking.txt')
+write.table(track, file = outFile, sep = "\t")
+```
+
+### double check
+
+```{r}
+st2 = collapseNoMismatch(seqtab.nochim)
+```
+
+```{r}
+dim(seqtab.nochim)
+dim(st2)
+```
+
+```{r}
+outFile = file.path(OutFolder,"st2.rds")
+
+saveRDS(st2, outFile)
+```
+
+
+
+
+### Clean up memory
+```{r}
+rm(ddF, ddR, errF, errR, merger, mergers, out, seqtab, seqtab.nochim, seqtab2, track)
+rm(st2)
+```
+# Stop here to merge files from two MiSeq runs in notebook 2
+
+
+# Checkpoint
+
+```{r}
+CheckPoint = file.path(OutFolder,"st2.rds")
+
+seqtab.nochim = readRDS(CheckPoint)
+```
+
+```{r}
+seqtab.nochim[1:10,1:10]
+```
+
+
+# Assign Taxonomy
+Assigning taxonomy using the UNITE database 
+```{r}
+unite.ref <- "/project/mmicrobe/databases/sh_general_release_dynamic_18.07.2023.fasta"  # CHANGE ME to location on your machine
+taxa <- assignTaxonomy(seqtab.nochim, unite.ref, multithread = ncores, tryRC = TRUE)
+```
+
+```{r}
+taxa.print <- taxa  # Removing sequence rownames for display only
+rownames(taxa.print) <- NULL
+head(taxa.print)
+```
+
+
+```{r}
+outFile = file.path(OutFolder,'taxa.rds')
+outFile
+saveRDS(taxa, outFile)
+```
+
+# Checkpoint read taxa file
+
+```{r}
+CheckPoint = file.path(OutFolder,"taxa.rds")
+taxa = readRDS(CheckPoint)
+
+```
+
+
+```{r}
+dim(taxa)
+```
+
+# Resume here 
+# Hand off to phyloseq
+
+
+```{r}
+# read sample data
+SamTab = "/project/mmicrobe/MLSH/ITS2/MLSH_ITSMap.csv"
+samdf = read.delim(file = SamTab, header = TRUE, sep = ',')
+head(samdf)
+row.names(samdf) = samdf$Sample.ID
+samdf = samdf[,-3]
+rownames(samdf)[1:4]
+```
+
+```{r}
+dim(samdf)
+```
+
+```{r}
+colnames(taxa)
+#rename taxa
+taxa = cbind(taxa, row.names(taxa))
+
+colnames(taxa)[8] = "Seq"
+```
+##fix sample names
+```{r}
+NewNames = rownames(seqtab.nochim)
+
+#NewNames=strsplit(NewNames, "_S", 1)
+NewNames = str_split(NewNames, "_S", simplify = TRUE)[,1]
+
+rownames(seqtab.nochim) = NewNames
+#NewNames
+```
+
+
+```{r}
+rownames(seqtab.nochim) %>% length()
+```
+
+
+```{r}
+rownames(samdf) %>% length
+```
+Empty samples were removed in pipeline, remove them here.  In other datasets there may be samples that need to be removed from the sequencing set that aren't in the metadata.
+
+```{r}
+toremove = setdiff(rownames(samdf), rownames(seqtab.nochim))
+toremove
+```
+
+
+```{r}
+dim(seqtab.nochim)
+allsamples = rownames(samdf)
+allsamples = allsamples[!(allsamples %in% toremove)]
+seqtab.nochim2 = seqtab.nochim[allsamples,]
+seqtab.nochim2 %>% dim()
+
+samdf = samdf[allsamples,]
+dim(samdf)
+```
+
+
+
+# Create phyloseq object
+```{r}
+ps <- phyloseq(otu_table(seqtab.nochim2, taxa_are_rows=FALSE), 
+               sample_data(samdf), 
+               tax_table(taxa))
+ps
+```
+
+
+```{r}
+# CheckOTU = taxa_names(ps)[150]
+# CheckOTU
+```
+
+```{r}
+#ps %>% prune_taxa(CheckOTU,.) %>% otu_table()
+```
+
+```{r}
+sample_names(ps)[1:55]
+```
+# Will need to stop here in order to combine sequencing runs
+
+# Exploration
+
+## Rename taxa
+```{r}
+new.names <- paste0("ASV", seq(ntaxa(ps))) # Define new names ASV1, ASV2,
+seqs <- taxa_names(ps) # Store sequences
+names(seqs) <- new.names # Make map from ASV1 to full sequence
+taxa_names(ps) <- new.names # Rename to human-friendly format
+taxa_names(ps)[1:10]
+```
+
+```{r}
+subset_taxa(ps, Seq == CheckOTU, TRUE) %>% 
+    prune_samples("2-F04-E18R_S132",.) %>%
+    otu_table()
+```
+* Sample sum matches
+
+```{r}
+taxa_sums(ps)[1:10]
+```
+## Save full object
+```{r}
+ps
+saveRDS(ps, file = file.path(OutFolder, 'MLSH_ITS_Plate3-4.rds')) 
+```
+
+## Threshold to remove minor sequences: sum(x > 3) > 3
+
+```{r}
+tax_table(ps) %>% head
+ps.thresh = filter_taxa(ps, function(x) sum(x > 3) > 3, TRUE)
+ps.thresh
+```
+
+```{r}
+rm(ps)
+```
+
+### Remove and save sequences from tax_table
+*removing sequences will greatly speed up psmelt and subsequent operations
+```{r}
+Seqs_df = cbind(rownames(tax_table(ps.thresh)), tax_table(ps.thresh)[,'Seq'])
+```
+
+```{r}
+colnames(Seqs_df)[1:2] = c("ASV", "Seq")
+head(Seqs_df)
+```
+
+```{r}
+taxa_df = tax_table(ps.thresh)[,1:6]
+head(taxa_df)
+```
+
+```{r}
+#save table of seqs
+write.table(Seqs_df, file = file.path(OutFolder,'taxa_seqs.txt'), sep = '\t')
+```
+
+```{r}
+# save fasta file of seqs
+outfile = file.path(OutFolder,'seqs_thresh.fasta')
+
+SeqNames = Seqs_df[,'ASV'] %>%
+    as.list()
+SeqNames[1:4]
+seqs = Seqs_df[,'Seq'] %>% as.list()
+seqs[1:4]
+seqinr::write.fasta(sequences = as.list(seqs), names = SeqNames, file.out = outfile)
+```
+
+### Save thresholded phyloseq with simplified taxa table
+```{r}
+head(taxa_df)
+```
+```{r}
+tax_table(ps.thresh) %>% head
+```
+```{r}
+tax_table(ps.thresh) = taxa_df
+head(tax_table(ps.thresh))
+```
+
+```{r}
+ps.thresh
+```
+
+```{r}
+#outfile = file.path(OutFolder,'Boyd_phyloseq_thresh.rds')
+#saveRDS(ps.thresh, file = outfile)
+```
+
+```{r}
+sample_data(ps.thresh)
+
+ps.KRC = ps.thresh %>% subset_samples(Location == "")
+ps.KRC
+sample_names(ps.KRC)
+sample_sums(ps.KRC)
+```
+```{r}
+plot_bar(ps.KRC, x = "sample", "Kingdom")
+plot_bar(ps.KRC, x="Sample", fill="Phylum")
+```
+```{r}
+ps.AMF = subset_taxa(ps.thresh, Phylum == "p__Glomeromycota")
+plot_bar(ps.AMF, x="Location", fill="Family")
+```
+hmmm, no AMF at all?  This doesn't sit right. Try without thresholding
+
+```{r}
+ps = readRDS(file = file.path(OutFolder, 'MLSH_ITS_Plate3-4.rds'))
+```
+
+```{r}
+ps.AMF = subset_taxa(ps, Phylum == "p__Glomeromycota")
+plot_bar(ps.AMF, x="Location", fill="Family")
+```
+Looks like many more sequences, now try with just Kelley
+
+```{r}
+ps.KRC = ps %>% subset_samples(Location == "")
+ps.KRC
+sample_names(ps.KRC)
+sample_sums(ps.KRC)
+
+ps.AMF = subset_taxa(ps.KRC, Phylum == "p__Glomeromycota")
+plot_bar(ps.AMF, x="Sample", fill="Family")
+```
+
+
+```{r}
+namestocheck = taxa_sums(ps.KRC) %>% sort(.,decreasing = TRUE) %>% .[1:25] %>% names()
+```
+```{r}
+tax_table(ps.KRC)[namestocheck,]
+```
+
+
+```{r}
+sessionInfo()
+```
