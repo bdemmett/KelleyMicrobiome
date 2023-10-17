@@ -1,0 +1,448 @@
+---
+title: "Merge Runs and Build Phyloseq"
+output: html_notebook
+---
+
+Starting point is sequence tables built in previous DADA2 runs 
+
+```{r}
+ncores = 12
+OutFolder = "/project/mmicrobe/Kelley/ITS2/merged"
+
+
+## need to upload combined sample data sheet
+##Metadata file
+
+SamData = "~/KelleyMicrobiome/SampleMetadata_PlotInfo.csv"
+SamMap = "~/KelleyMicrobiome/ITS2_1984_PrimerMaps.csv"
+```
+
+```{r}
+library(dada2)
+library(tidyverse)
+library(phyloseq)
+
+```
+
+# Read in and merge sequence tables
+```{r}
+
+
+# Merge multiple runs (if necessary)
+#Plate1 &2
+st1 <- readRDS("/project/mmicrobe/Kelley/ITS2/KY21-1-2/st2.rds")
+rownames(st1)
+st1 = st1[-191,]
+
+#Plate3&4
+st2 <- readRDS("/project/mmicrobe/Kelley/ITS2/KY21-3-4/st2.rds")
+rownames(st2)
+st2 = st2[-157,]
+st.all <- mergeSequenceTables(st1, st2)
+     
+```
+
+
+```{r}
+dim(st1)
+dim(st2)
+dim(st.all)
+```
+```{r}
+st.all = collapseNoMismatch(st.all)
+
+outFile = file.path(OutFolder,"seqtab-merged.rds")
+
+saveRDS(st.all, outFile)
+```
+
+
+# Checkpoint
+read merged saqtab
+
+```{r}
+CheckPoint = file.path(OutFolder,"seqtab-merged.rds")
+
+seqtab.nochim = readRDS(CheckPoint)
+```
+
+
+
+# Assign Taxonomy
+Assigning taxonomy using the UNITE database 
+```{r}
+unite.ref <- "/project/mmicrobe/databases/sh_general_release_dynamic_18.07.2023.fasta"  # CHANGE ME to location on your machine
+taxa <- assignTaxonomy(seqtab.nochim, unite.ref, multithread = ncores, tryRC = TRUE)
+```
+
+```{r}
+taxa.print <- taxa  # Removing sequence rownames for display only
+rownames(taxa.print) <- NULL
+head(taxa.print)
+```
+
+```{r}
+#rename taxa
+taxa = cbind(taxa, row.names(taxa))
+colnames(taxa)[8] = "Seq"
+
+
+```
+
+
+```{r}
+outFile = file.path(OutFolder,'taxa.rds')
+outFile
+saveRDS(taxa, outFile)
+```
+
+# Checkpoint
+
+```{r}
+taxafile = file.path(OutFolder,'taxa.rds')
+taxa = readRDS(taxafile)
+head(taxa)
+```
+
+
+
+# Hand of to phyloseq
+
+
+# Format sample data
+
+
+```{r}
+# read sample data
+samdf = read.csv(file = SamData, header = TRUE)
+head(samdf)
+rownames(samdf)[1:4]
+
+map.df = read.csv(file = SamMap, header = TRUE)
+head(map.df)
+
+colnames(samdf)[13] = "SampleID"
+samdf = left_join(map.df, samdf, by = c("SampleIDforlookup"="SampleID"))
+
+
+rownames(samdf) = samdf$SampleName
+head(samdf)
+```
+
+
+```{r}
+rownames(seqtab.nochim) %>% length()
+rownames(samdf) %>% length()
+rownames(seqtab.nochim)[1:4]
+rownames(samdf) [1:4]
+
+```
+
+```{r}
+st.names = rownames(seqtab.nochim) %>% as.data.frame()
+colnames(st.names) = "LibraryName"
+rownames(st.names) = st.names$LibraryName
+
+
+md = st.names %>% mutate(FileName = LibraryName) %>%
+  separate(LibraryName, 
+        sep = "-", 
+        into = c("SampleID", "Tail")) %>%
+  separate(Tail, 
+        sep = "_", 
+        into = c("Loc")) %>%
+  mutate(SampleName = paste(SampleID,Loc, sep = "-")) 
+
+# Fix erroneous file names
+
+md["1_x_1__Rh-Plate6B8_S55_L001_R1_001.fastq.gz","SampleID"] = "1_x_1_Rh"
+md["1_x_1__Rh-Plate6B8_S55_L001_R1_001.fastq.gz","SampleName"] = "1_x_1_Rh-Plate6B8"  
+
+md["1_x_3_Rh_-Plate6A8_S54_L001_R1_001.fastq.gz", "SampleID"] = "1_x_3_Rh"
+md["1_x_3_Rh_-Plate6A8_S54_L001_R1_001.fastq.gz", "SampleName"] = "1_x_3_Rh-Plate6A8"
+
+md["ExBlank1b-Plate1E12_S93_L001_R1_001.fastq.gz", "SampleID"] = "14_x_3_Rh"
+md["ExBlank1b-Plate1E12_S93_L001_R1_001.fastq.gz", "SampleName"] = "14_x_3_Rh-Plate1E12"
+
+md = md %>% left_join(., samdf, by = "SampleName") 
+
+rownames(md) = md$FileName
+#md = md[, c(1:5, 14:25)]
+colnames(md)
+
+
+```
+
+```{r}
+rownames(seqtab.nochim) == rownames(md)
+```
+
+# Create Phyloseq object
+
+```{r}
+
+ps <- phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE), 
+               sample_data(md), 
+               tax_table(taxa))
+ps
+```
+
+## Rename taxa
+```{r}
+new.names <- paste0("ASV", seq(ntaxa(ps))) # Define new names ASV1, ASV2,
+seqs <- taxa_names(ps) # Store sequences
+names(seqs) <- new.names # Make map from ASV1 to full sequence
+taxa_names(ps) <- new.names # Rename to human-friendly format
+taxa_names(ps)[1:10]
+```
+```{r}
+taxa_sums(ps)[1:10]
+```
+
+## save full phyloseq object
+
+
+```{r}
+Outfile = file.path(OutFolder, "phyloseq_full.rds")
+saveRDS(ps, file = Outfile)
+```
+     
+
+# Checkpoint, read phyloseq object
+
+```{r}
+CheckpointFile = file.path(OutFolder, "phyloseq_full.rds")
+ps = readRDS(CheckpointFile)
+```
+
+### Remove and save sequences from tax_table
+
+```{r}
+tax_table(ps) %>% head()
+```
+
+*removing sequences will greatly speed up psmelt and subsequent operations
+```{r}
+Seqs_df = cbind(rownames(tax_table(ps)), tax_table(ps)[,'Seq'])
+head(Seqs_df)
+```
+
+```{r}
+colnames(Seqs_df)[1:2] = c("ASV", "Seq")
+head(Seqs_df)
+```
+```{r}
+Seqs_df[1,]
+```
+ASV 1 is soybean, will need to remove
+```{r}
+taxa_df = tax_table(ps)[,1:7]
+head(taxa_df)
+```
+
+```{r}
+#save table of seqs
+write.table(Seqs_df, file = file.path(OutFolder,'taxa_seqs.txt'), sep = '\t')
+```
+
+```{r}
+# save fasta file of seqs
+outfile = file.path(OutFolder,'seqs.fasta')
+
+SeqNames = Seqs_df[,'ASV'] %>%
+    as.list()
+SeqNames[1:4]
+seqs = Seqs_df[,'Seq'] %>% as.list()
+seqs[1:4]
+seqinr::write.fasta(sequences = as.list(seqs), names = SeqNames, file.out = outfile)
+```
+
+## Save thresholded phyloseq with simplified taxa table
+```{r}
+head(taxa_df)
+```
+
+```{r}
+tax_table(ps) %>% head
+
+```
+```{r}
+tax_table(ps) = taxa_df
+head(tax_table(ps))
+```
+
+```{r}
+alltaxa = taxa_names(ps)
+alltaxa <- alltaxa[!(alltaxa %in% c("ASV1"))]
+ps = prune_taxa(alltaxa, ps)
+tax_table(ps) %>% head()
+```
+```{r}
+sample_sums(ps)
+```
+
+
+
+
+
+## separate controls and samples
+
+
+```{r}
+
+
+ps.controls = subset_samples(ps, SampleID %in% c("ExBlank1a",
+"PCRBlank1",
+"FungalMock1",
+"ExBlank2a",
+"ExBlank2b",
+"PCRBlank2",
+"FungalMock2",
+"ExBlank3a",
+"ExBlank3b",
+"ExBlank3c",
+"PCRBlank4a",
+"FungalMock4"))
+
+ps.controls
+
+Outfile = file.path(OutFolder, "ITS2Controls_phyloseq.rds")
+saveRDS(ps.controls, file = Outfile)
+
+ps.field = subset_samples(ps, !is.na(CollectionDate))
+
+
+ ps.field <- prune_samples(sample_sums(ps.field)>=100, ps.field)
+ 
+
+Outfile = file.path(OutFolder, "Kelley2021_phyloseq.rds")
+saveRDS(ps.field, file = Outfile)
+
+ps.field
+ 
+```
+# Quick ordination to evaluate effects
+
+```{r}
+ps.snorm = ps.field %>% transform_sample_counts(function(x) x/sum(x))
+
+ordu = ordinate(ps.snorm, "PCoA", "bray", weighted=TRUE)
+p = plot_ordination(ps.snorm, ordu, justDF = TRUE)
+plot_ordination(ps.snorm, ordu)
+```
+```{r}
+head(p)
+p1 = ggplot(p, aes(x = Axis.1, y = Axis.2)) +
+geom_point(aes(fill = SampleType, size = 1, stroke = 1.5), pch = 21) +
+#theme_pub() +
+#scale_shape_manual(values=c(22,21,23), guide = guide_legend(title = "Soil", ncol = 1))+
+#scale_color_manual(values=c('Orange','Black'))+
+#scale_fill_manual(values = cs, labels = c("Bulk soil", "Core hyphae", "Core slurry"))+
+labs(x = "PCoA 1 [19.7%]", y = "PCoA 2 [10.1%]") +
+ggtitle("PCoA of Bray Curtis Dissimilarities")+
+facet_wrap(~SampleEffort, ncol = 3)
+
+#guides(fill=guide_legend(override.aes=list(colour= cs), ncol = 3)) + 
+#theme(legend.position="bottom") 
+
+#color = "grey20",
+
+p1
+```
+
+# Just out of curiousity, quick look at soils
+```{r}
+ps.soil = subset_samples(ps.snorm, SampleType == "Soil")
+
+ordu = ordinate(ps.soil, "PCoA", "bray", weighted=TRUE)
+p = plot_ordination(ps.soil, ordu, justDF = TRUE)
+plot_ordination(ps.soil, ordu)
+```
+```{r}
+p1 = ggplot(p, aes(x = Axis.1, y = Axis.2)) +
+geom_point(aes(fill = PrimerPlate, size = 1, stroke = 1.5), pch = 21) +
+#theme_pub() +
+#scale_shape_manual(values=c(22,21,23), guide = guide_legend(title = "Soil", ncol = 1))+
+#scale_color_manual(values=c('Orange','Black'))+
+#scale_fill_manual(values = cs, labels = c("Bulk soil", "Core hyphae", "Core slurry"))+
+labs(x = "PCoA 1 [16.9%]", y = "PCoA 2 [8.4%%]") +
+ggtitle("PCoA of Bray Curtis Dissimilarities")+
+facet_grid(Depth~SampleEffort)
+
+#guides(fill=guide_legend(override.aes=list(colour= cs), ncol = 3)) + 
+#theme(legend.position="bottom") 
+
+#color = "grey20",
+
+p1
+```
+Now for the fun part, look at roots
+```{r}
+ps.root = subset_samples(ps.snorm, SampleType == "Roots")
+
+ordu = ordinate(ps.root, "PCoA", "bray", weighted=TRUE)
+p = plot_ordination(ps.root, ordu, justDF = TRUE)
+plot_ordination(ps.root, ordu)
+```
+```{r}
+p1 = ggplot(p, aes(x = Axis.1, y = Axis.2)) +
+geom_point(aes(fill = Treatment_ID, size = 1, stroke = 1.5), pch = 21) +
+#theme_pub() +
+#scale_shape_manual(values=c(22,21,23), guide = guide_legend(title = "Soil", ncol = 1))+
+#scale_color_manual(values=c('Orange','Black'))+
+#scale_fill_manual(values = cs, labels = c("Bulk soil", "Core hyphae", "Core slurry"))+
+labs(x = "PCoA 1 [16.9%]", y = "PCoA 2 [8.4%%]") +
+ggtitle("PCoA of Bray Curtis Dissimilarities")+
+facet_wrap(~SampleEffort, ncol = 3)
+
+#guides(fill=guide_legend(override.aes=list(colour= cs), ncol = 3)) + 
+#theme(legend.position="bottom") 
+
+#color = "grey20",
+
+p1
+```
+```{r, fig.height = 12, fig.width = 12}
+ps.rootAMF = subset_taxa(ps.root, Phylum == "p__Glomeromycota")
+
+sample_sums(ps.rootAMF)
+
+plot_bar(ps.rootAMF, x = "SampleID", fill = "Genus")+
+  facet_grid(SampleEffort~Treatment_ID, scales = "free")
+```
+```{r}
+ps.rootAMF = subset_taxa(ps.field, Phylum == "p__Glomeromycota") %>%
+  subset_taxa(Phylum == "p__Glomeromycota") %>%
+  subset_samples(SampleType == "Roots")
+
+AMFRootCounts = sample_sums(ps.rootAMF)
+  
+ps.rootAMF = prune_samples(sample_sums(ps.rootAMF)>0, ps.rootAMF) %>% 
+  transform_sample_counts(function(x) x/sum(x))
+
+ordu = ordinate(ps.rootAMF, "PCoA", "bray", weighted=TRUE)
+p = plot_ordination(ps.rootAMF, ordu, justDF = TRUE)
+plot_ordination(ps.rootAMF, ordu)
+```
+```{r}
+p1 = ggplot(p, aes(x = Axis.1, y = Axis.2)) +
+geom_point(aes(fill = Treatment_ID, size = 1, stroke = 1.5), pch = 21) +
+#theme_pub() +
+#scale_shape_manual(values=c(22,21,23), guide = guide_legend(title = "Soil", ncol = 1))+
+#scale_color_manual(values=c('Orange','Black'))+
+#scale_fill_manual(values = cs, labels = c("Bulk soil", "Core hyphae", "Core slurry"))+
+labs(x = "PCoA 1 [16.6%]", y = "PCoA 2 [11.3%%]") +
+ggtitle("PCoA of Bray Curtis Dissimilarities")+
+facet_wrap(~SampleEffort, ncol = 3)
+
+#guides(fill=guide_legend(override.aes=list(colour= cs), ncol = 3)) + 
+#theme(legend.position="bottom") 
+
+#color = "grey20",
+
+p1
+```
+
+```{r}
+sessionInfo()
+```

@@ -1,5 +1,5 @@
 ---
-title: "DADA2 - KelleyMicrobiome ITS2 Plate 3 & 4"
+title: "DADA2 - KelleyMicrobiome ITS2 Plate 1 & 2"
 output: html_notebook
 ---
 
@@ -27,7 +27,7 @@ library(phyloseq)
 
 
 ```{r}
-seqDIR = '/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw'
+seqDIR = '/project/mmicrobe/Kelley/ITS2/Raw/KY21-1-2'
 path = seqDIR
 list.files(path)
 
@@ -267,10 +267,18 @@ head(out)
 
 ```{r}
 head(out)
-OutFolder = "/project/mmicrobe/Kelley/ITS2/KY21-3-4"
+OutFolder = "/project/mmicrobe/Kelley/ITS2/KY21-1-2/"
 saveRDS(out, file.path(OutFolder,'FilterTrim.rds'))
 ```
+# Remove failed samples to avoid downstream problems
 
+Note that ExBlank1b-Plate1E12 is actually sample 14_x_3_Rh, which was mistakenly thought to be a blank downstream.  It was also normalized to cell A1, so there is a duplicate to compare and confirm.
+
+
+```{r}
+out %>% as.data.frame() %>% filter(reads.out < 20)
+```
+maybe it is ok, leave in for now
 
 # Learn errors
 
@@ -359,7 +367,7 @@ colnames(track) <- c("input", "filtered", "denoisedF", "denoisedR", "merged", "n
 head(track)
 
 ```
-Rows in racking file are offset by one after removal of 13.x.3.Rh
+
 
 ```{r}
 track %>% as.data.frame() %>% mutate(sample = row.names(.)) %>% dplyr::arrange(desc(nonchim))

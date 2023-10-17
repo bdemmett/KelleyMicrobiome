@@ -17,7 +17,7 @@
 ############### user inputs
 
 # specify paths of input and output folders
-dir='/project/mmicrobe/Kelley/ITS2/Raw/KY21-3-4/raw'
+dir='/project/mmicrobe/Kelley/ITS2/Raw/KY21-1-2'
 
 filtdir='cutadapt'
 filtdir="$dir/$filtdir"
