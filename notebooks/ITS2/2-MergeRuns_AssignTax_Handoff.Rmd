@@ -443,6 +443,147 @@ facet_wrap(~SampleEffort, ncol = 3)
 p1
 ```
 
+
+# Evaluate plate 3 for to confirm sample IDs
+
+
+
+```{r}
+ps.snorm = ps.field %>% transform_sample_counts(function(x) x/sum(x))
+
+ordu = ordinate(ps.snorm, "PCoA", "bray", weighted=TRUE)
+p = plot_ordination(ps.snorm, ordu, justDF = TRUE)
+plot_ordination(ps.snorm, ordu)
+```
+```{r}
+head(p)
+p1 = ggplot(p, aes(x = Axis.1, y = Axis.2)) +
+   
+ 
+  geom_point(aes(fill = SampleType, size = 1, stroke = 1.5), pch = 21) +
+   geom_point(
+    data = filter(p, SampleID == "14_x_1_Rh"),
+   
+    fill = "orange",
+    size =3, pch = 21
+  ) +
+  geom_text(data = filter(p, SampleID == "14_x_1_Rh"), aes(label = SampleID), check_overlap = TRUE, nudge_x = -0.1, nudge_y = -0.1)+
+  # annotate(geom = "text", x = 4.1, y = 35, label = "subaru", hjust = "left")
+#theme_pub() +
+#scale_shape_manual(values=c(22,21,23), guide = guide_legend(title = "Soil", ncol = 1))+
+#scale_color_manual(values=c('Orange','Black'))+
+#scale_fill_manual(values = cs, labels = c("Bulk soil", "Core hyphae", "Core slurry"))+
+labs(x = "PCoA 1 [19.7%]", y = "PCoA 2 [10.1%]") +
+ggtitle("PCoA of Bray Curtis Dissimilarities")+
+facet_wrap(~SampleEffort, ncol = 3)
+
+#guides(fill=guide_legend(override.aes=list(colour= cs), ncol = 3)) + 
+#theme(legend.position="bottom") 
+
+#color = "grey20",
+
+p1
+```
+
+```{r}
+filter(p, SampleEffort == "T4" & Axis.1 < 0 & SampleType == "Rhizosphere")
+```
+
+most samples from plate 3 match with duplicates.  There a couple duplicates on plate 1 and 2 that cluster oddly and this may be from poor extraction efficiency.  These duplicates here can be removed before further analysis.
+
+Keep an eye on 8.x.4.Rh, which clusters with T1 rhizospheres.  
+
+
+
+
+```{r}
+toRemove = c("3_x_1_Rh-Plate1A11_S81_L001_R1_001.fastq.gz",# low extraction effeciency and doesn't cluster with replicates
+            "16_x_1_Rh-Plate2E11_S180_L001_R1_001.fastq.gz", # Not great extraction, doesn't cluster with replicates but why is it clustering with roots?
+            "24_x_2_Rh-Plate2H11_S183_L001_R1_001.fastq.gz",
+# Clusters far from duplicate, more closely to roots.  Had low DNA yield)
+          "8_x_2_Rh-Plate2G11_S182_L001_R1_001.fastq.gz")
+SamplesToKeep = sample_names(ps.field) 
+SamplesToKeep = SamplesToKeep[!(SamplesToKeep %in% toRemove)]
+ps.field <- prune_samples(sample_sums(ps.field)>=100, ps.field)
+ps.field = prune_samples(SamplesToKeep, ps.field)
+ps.field
+```
+* Note that currently 14_1s are both left as 14_1.  It is possible that one of the extractions is 14_2 
+
+```{r}
+sample_data(ps.field) %>% head()
+
+ps.field.merge = merge_samples(ps.field, "SampleIDforlookup")
+```
+
+### format and rejoin new metadata
+```{r}
+tmp = md %>% 
+  select(SampleIDforlookup, Site, PlotID, Block, Rep, Treatment_ID, Treatment, Tillage, SampleEffort, CollectionDate, Depth_cm, Depth, SampleType)
+dim(tmp)
+tmp = unique(tmp)
+dim(tmp)
+rownames(tmp) = tmp$SampleIDforlookup
+head(tmp)
+
+colnames(tmp)[1] = "Sampl"
+
+sample_data(ps.field.merge) = tmp
+
+sample_data(ps.field.merge)
+```
+```{r}
+ps.snorm = ps.field.merge %>% transform_sample_counts(function(x) x/sum(x))
+
+ordu = ordinate(ps.snorm, "PCoA", "bray", weighted=TRUE)
+p = plot_ordination(ps.snorm, ordu, justDF = TRUE)
+plot_ordination(ps.snorm, ordu)
+```
+
+
+```{r}
+head(p)
+p1 = ggplot(p, aes(x = Axis.1, y = Axis.2)) +
+   
+ 
+  geom_point(aes(fill = SampleType, size = 1, stroke = 1.5), pch = 21) +
+   geom_point(
+    data = filter(p, SampleID == "14.x.1.Rh"),
+   
+    fill = "orange",
+    size =3, pch = 21
+  ) +
+  geom_text(data = filter(p, SampleID == "14.x.1.Rh"), aes(label = SampleID), check_overlap = TRUE, nudge_x = -0.1, nudge_y = -0.1)+
+  # annotate(geom = "text", x = 4.1, y = 35, label = "subaru", hjust = "left")
+#theme_pub() +
+#scale_shape_manual(values=c(22,21,23), guide = guide_legend(title = "Soil", ncol = 1))+
+#scale_color_manual(values=c('Orange','Black'))+
+#scale_fill_manual(values = cs, labels = c("Bulk soil", "Core hyphae", "Core slurry"))+
+labs(x = "PCoA 1 [19.7%]", y = "PCoA 2 [10.1%]") +
+ggtitle("PCoA of Bray Curtis Dissimilarities")+
+facet_wrap(~SampleEffort, ncol = 3)
+
+#guides(fill=guide_legend(override.aes=list(colour= cs), ncol = 3)) + 
+#theme(legend.position="bottom") 
+
+#color = "grey20",
+
+p1
+```
+
+# Save trimmed file and merged file
+```{r}
+outfile = "Kelley2021_ITS_phyloseq.rds"
+outfile = file.path(OutFolder,outfile)
+saveRDS(ps.field, file = outfile)
+```
+
+```{r}
+outfile = "Kelley2021_ITS_phyloseq_samplesmerged.rds"
+outfile = file.path(OutFolder,outfile)
+saveRDS(ps.field.merge, file = outfile)
+```
+
 ```{r}
 sessionInfo()
 ```
