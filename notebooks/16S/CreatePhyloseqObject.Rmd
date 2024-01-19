@@ -1,0 +1,239 @@
+---
+title: "Create Phyloseq Object"
+output: html_notebook
+---
+
+```{r}
+library(dada2)
+library(tidyr)
+library(dplyr)
+library(phyloseq)
+library(ggplot2)
+library(ape)
+```
+
+# File locations
+```{r}
+InputDir = '/project/mmicrobe/Kelley/16S/output'
+```
+
+```{r}
+taxfile="taxonomy.fixed.tsv"
+countfile="counts.fixed.tsv"
+treefile = "tree.nwk"
+metadata_file="/project/mmicrobe/Kelley/16S/Kelley2021_16S_QiimeManifest.txt"
+
+SamData = "~/KelleyMicrobiome/SampleMetadata_PlotInfo.csv"
+
+OutFolder = "/project/mmicrobe/Kelley/16S/output"
+
+```
+
+# Format inputs
+```{r}
+tree=read_tree(file.path(InputDir,treefile))
+new_tree <- ape::multi2di(tree)
+
+
+md = read.table(metadata_file, sep="\t", header=TRUE)
+rownames(md) = md[,1]
+
+#Format manifest file for incorporation into phyloseq and for joining with plot data.  Wait until after merging samples to join
+md = md %>% mutate(LibraryName = SampleID) %>%
+  separate(SampleID, 
+        sep = "-", 
+        into = c("SampleID", "Loc")) 
+
+head(md)
+
+
+Counts = read.table(file.path(InputDir,countfile), sep="\t", row.names=1)
+colnames(Counts) = Counts[1,]
+Counts = Counts[-1,]
+taxa = read.table(file.path(InputDir,taxfile), sep="\t", row.names=1, header = TRUE)
+```
+
+
+
+
+
+
+```{r}
+head(Counts)
+```
+
+```{r}
+head(taxa)
+head(md)
+```
+
+
+```{r}
+is.rooted(tree)
+```
+## Check row order
+```{r}
+all(rownames(taxa) == rownames(Counts)) 
+#str(Counts)
+Counts[]=lapply(Counts,as.integer)
+rownames(taxa)[1:10]
+rownames(taxa)[1:10]
+```
+
+
+```{r}
+
+
+ps <- phyloseq(otu_table(Counts, taxa_are_rows=TRUE), 
+               sample_data(md),
+               tax_table(as.matrix(taxa)))
+
+ps=merge_phyloseq(ps,tree)
+
+ps
+```
+
+Double check row ordering
+```{r}
+rownames(taxa)[1:10]
+taxa_names(ps)[1:10]
+```
+
+
+
+```{r}
+ps.pro = subset_taxa(ps, Genus!="unclassified  Chloroplast" & Family!="Mitochondria")
+tax_table(ps.pro) %>% head()
+sample_sums(ps.pro)
+```
+
+
+```{r}
+lowsamples = sample_sums(ps.pro)[sample_sums(ps.pro) < 10000]
+lowdf = as.data.frame(lowsamples)
+```
+
+```{r}
+sample_sums(ps.pro) %>% hist()
+```
+
+```{r}
+ps.pro.merge = merge_samples(ps.pro, "SampleID")
+```
+
+
+
+
+```{r}
+sd =  as(sample_data(ps.pro.merge), "data.frame") %>%
+  mutate(SampleID = rownames(.)) %>%
+  select(SampleID)
+
+head(sd)
+
+PlotInfo = read.csv(SamData) %>%
+  mutate(SampleID = SampleCode..PlotID.Depth.Effort.Type.,
+         SampleID = gsub("\\.","_", SampleID)) %>%
+  filter(!is.na(SampleID))
+
+
+sd = left_join(sd, PlotInfo, by = "SampleID") 
+rownames(sd) = sd$SampleID 
+  
+head(sd)
+
+sample_data(ps.pro.merge) = sd
+
+```
+
+# Quick visualization
+
+```{r}
+ps.snorm = ps.pro.merge %>% 
+  subset_samples(!is.na(PlotID)) %>%
+  transform_sample_counts(function(x) x/sum(x))
+
+ordu = ordinate(ps.snorm, "PCoA", "unifrac", weighted=TRUE)
+p = plot_ordination(ps.snorm, ordu, justDF = TRUE)
+plot_ordination(ps.snorm, ordu)
+```
+
+
+```{r}
+head(p)
+p1 = ggplot(p, aes(x = Axis.1, y = Axis.2)) +
+   
+ 
+  geom_point(aes(fill = SampleType, size = 1, stroke = 1.5), pch = 21) +
+   geom_point(
+    data = filter(p, SampleID == "14.x.1.Rh"),
+   
+    fill = "orange",
+    size =3, pch = 21
+  ) +
+  geom_text(data = filter(p, SampleID == "14.x.1.Rh"), aes(label = SampleID), check_overlap = TRUE, nudge_x = -0.1, nudge_y = -0.1)+
+  # annotate(geom = "text", x = 4.1, y = 35, label = "subaru", hjust = "left")
+#theme_pub() +
+#scale_shape_manual(values=c(22,21,23), guide = guide_legend(title = "Soil", ncol = 1))+
+#scale_color_manual(values=c('Orange','Black'))+
+#scale_fill_manual(values = cs, labels = c("Bulk soil", "Core hyphae", "Core slurry"))+
+labs(x = "PCoA 1 [19.7%]", y = "PCoA 2 [10.1%]") +
+ggtitle("PCoA of Bray Curtis Dissimilarities")+
+facet_wrap(~SampleEffort, ncol = 3)
+
+#guides(fill=guide_legend(override.aes=list(colour= cs), ncol = 3)) + 
+#theme(legend.position="bottom") 
+
+#color = "grey20",
+
+p1
+```
+
+
+```{r}
+#registerDoParallel(6)
+
+uni.dist = phyloseq::distance(ps.snorm, 
+                      method = "unifrac", 
+                      weighted = TRUE,
+                      fast = TRUE, 
+                      parallel = TRUE, 
+                      normalized = FALSE)
+
+df = as(sample_data(ps.snorm), "data.frame")
+#df$Rep = as.factor(df
+#Sa = as.factor(df$TimePoint)
+d = uni.dist
+```
+
+
+
+
+```{r}
+w.u.adonis = vegan::adonis2(formula = d ~ SampleEffort*SampleType*Treatment_ID, df, permutations = 999)
+print("w-unifrac at Genus level")
+w.u.adonis
+```
+Will need to clean up and drop samples with low counts before re-running.  For now, save phyloseq object.
+
+```{r}
+outfile = "Kelley2021_16S_phyloseq.merged.rds"
+outfile = file.path(OutFolder,outfile)
+saveRDS(ps.pro.merge, file = outfile)
+
+
+ps.field = ps.pro.merge %>% 
+  subset_samples(!is.na(PlotID))
+
+outfile = "Kelley2021_16S_phyloseq.merged.field.rds"
+outfile = file.path(OutFolder,outfile)
+saveRDS(ps.field, file = outfile)
+
+ps.controls = ps.pro.merge %>% 
+  subset_samples(is.na(PlotID))
+
+outfile = "Kelley2021_16S_phyloseq.controls.rds"
+outfile = file.path(OutFolder,outfile)
+saveRDS(ps.field, file = outfile)
+```
+

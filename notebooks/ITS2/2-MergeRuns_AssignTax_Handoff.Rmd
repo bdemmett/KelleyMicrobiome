@@ -494,6 +494,39 @@ most samples from plate 3 match with duplicates.  There a couple duplicates on p
 Keep an eye on 8.x.4.Rh, which clusters with T1 rhizospheres.  
 
 
+## Check when clustering only with type
+
+```{r}
+ps.rh = subset_samples(ps.snorm, SampleType == "Rhizosphere")
+ps.rh
+
+ordu = ordinate(ps.rh, "PCoA", "bray", weighted=TRUE)
+p = plot_ordination(ps.rh, ordu, justDF = TRUE)
+plot_ordination(ps.rh, ordu)
+```
+```{r}
+p1 = ggplot(p, aes(x = Axis.1, y = Axis.2)) +
+geom_point(aes(fill = Treatment_ID, size = 1, stroke = 1.5), pch = 21) +
+#theme_pub() +
+#scale_shape_manual(values=c(22,21,23), guide = guide_legend(title = "Soil", ncol = 1))+
+#scale_color_manual(values=c('Orange','Black'))+
+#scale_fill_manual(values = cs, labels = c("Bulk soil", "Core hyphae", "Core slurry"))+
+#labs(x = "PCoA 1 [16.6%]", y = "PCoA 2 [11.3%%]") +
+ggtitle("PCoA of Bray Curtis Dissimilarities")+
+facet_wrap(~SampleEffort, ncol = 3)
+
+#guides(fill=guide_legend(override.aes=list(colour= cs), ncol = 3)) + 
+#theme(legend.position="bottom") 
+
+#color = "grey20",
+
+p1
+```
+
+```{r}
+filter(p, Treatment_ID == "RC" & SampleEffort == "T1")
+```
+
 
 
 ```{r}
@@ -526,12 +559,13 @@ dim(tmp)
 rownames(tmp) = tmp$SampleIDforlookup
 head(tmp)
 
-colnames(tmp)[1] = "Sampl"
+colnames(tmp)[1] = "Sample"
 
 sample_data(ps.field.merge) = tmp
 
 sample_data(ps.field.merge)
 ```
+
 ```{r}
 ps.snorm = ps.field.merge %>% transform_sample_counts(function(x) x/sum(x))
 
